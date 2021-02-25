@@ -1,0 +1,17 @@
+image: alpine:latest
+
+pages:
+  stage: deploy
+  tags: 
+    - docker
+  script:
+  - echo 'Nothing to do...'
+  - mkdir -p /tmp/files
+  - mv -f ./* /tmp/files/
+  - mkdir public
+  - mv /tmp/files/* ./public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
